@@ -7,7 +7,7 @@ import numpy as np
 
 def bisect(f,a0,b0,k_max,eps_x,eps_f):
     
-    conv = 0                            # flag for convergence, default is "not converged"
+    conv = False                        # flag for convergence, default is "not converged"
     
     if ( f(a0)*f(b0) > 0):              # check to see whether we can guarantee convergence via IVT condition
         print('Error. f(a0) f(b0) > 0: Starting condition not satisfied.')
@@ -30,7 +30,7 @@ def bisect(f,a0,b0,k_max,eps_x,eps_f):
         print(f'iteration {k+1}, err={max_err:.4e} and res={res:.4e}')  # Since k starts at 0, I added 1 to k to make the first iteration 1
 
         if (max_err < eps_x) and (res < eps_f):     # if both are less than their tolerance, stop iterations
-            conv=1                                  # set the convergence flag to "converged"
+            conv=True                               # set the convergence flag to "converged"
             break
 
     if (conv==0):                       # print warning if the iterations did not converge
@@ -50,7 +50,7 @@ eps_f = 1.0                             # tolerance of function value
 
 xstar,err,conv=bisect(f,a0,b0,k_max,eps_x,eps_f)
 
-if (conv==1):
+if (conv):
     print(f'\n x* = {xstar}')
     
     
