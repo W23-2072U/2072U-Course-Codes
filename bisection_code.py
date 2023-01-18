@@ -33,7 +33,7 @@ def bisect(f,a0,b0,k_max,eps_x,eps_f):
             conv=True                               # set the convergence flag to "converged"
             break
 
-    if (conv==0):                       # print warning if the iterations did not converge
+    if (conv==False):                   # print warning if the iterations did not converge
         print(f'No convergence after {k_max} interations')
 
     return c,max_err,conv               # return the approximate solution, maximal error and convergence flag
