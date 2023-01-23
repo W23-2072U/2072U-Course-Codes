@@ -1,5 +1,7 @@
 
-#  Bisection code as programmed in Lecture 3 (by G. Lewis and attending students)
+#  Bisection code as programmed in Lecture 5 (by G. Lewis and attending students)
+#    modified version of bisection_code.py to plot error as a function of number of iteration
+
 #  Input: function f, starting points a0 and b0,
 #    also need max iteration k_max, tolerances eps_x, eps_f
 
@@ -17,7 +19,7 @@ def bisect(f,a0,b0,k_max,eps_x,eps_f):
     a = a0
     b = b0
     
-    iteration_history = []              # to hold a list of 
+    iteration_history = []              # a list to hold the information at each iteration
     
     
     for k in range(k_max):              # loop over at most k_max bisection steps
@@ -30,7 +32,7 @@ def bisect(f,a0,b0,k_max,eps_x,eps_f):
             b=c                         # update the right boundary
         max_err = abs(b-a)              # compute the maximal error and the residual
         res = abs(f_mid)
-        iteration_history.append([k+1, c, max_err, res])
+        iteration_history.append([k+1, c, max_err, res])   # adding the current iteration information to the end of the list
   
         print(f'iteration {k+1}, err={max_err:.4e} and res={res:.4e}')  # Since k starts at 0, I added 1 to k to make the first iteration 1
 
@@ -41,7 +43,7 @@ def bisect(f,a0,b0,k_max,eps_x,eps_f):
     if not conv:                       # print warning if the iterations did not converge
         print(f'No convergence after {k_max} interations')
         
-    it_hist = np.array(iteration_history)  # plot will need this to be an array not a list
+    it_hist = np.array(iteration_history)  # plot will need this to be a numpy array not a list
 
     return c, it_hist, conv              # return the approximate solution, maximal error and convergence flag
 
