@@ -15,7 +15,7 @@ def f(x):
 x0=0.
 x1=5.
 kMax=50
-max_err=10e-8
+max_err=1.0e-8
 max_res=1
 
 # Do secant iteration.
