@@ -24,12 +24,12 @@ def LS_Matrix(xd):
     return A
 
 #   make the data, by taking a quadratic function and adding noise
-N = 100
+N = 10
 # x coords of data
 xd = np.linspace(-1,2,N)
 
 # values of quadratic at data points
-y = 1.0 + 2.0*xd - xd*xd    #  polynomial with coefficients a = [1,0, 2.0, -1.0]
+y = 0.1 + 2.0*xd - xd*xd    #  polynomial with coefficients a = [1,0, 2.0, -1.0]
 
 #  add noise to data
 seed(1)
